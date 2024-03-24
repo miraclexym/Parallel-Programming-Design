@@ -12,7 +12,7 @@ const int MinTestDataSize = 1e1;
 const int MaxTestDataSize = 1e4;
 const int ScaleIncreasingFactor = 1e1;
 
-// 设置测试循环次数
+// 设置测试循环系数
 const int CycleControlCoefficient = 1e5;
 
 // 逐列访问元素的平凡算法
@@ -117,10 +117,10 @@ void FixedDataScaleTesting(int n)
     }
 
     // 输出数据规模
-    cout << "The data size is " << n << "." << endl;
+    cout << "Data size : " << n << ".";
 
     // 输出循环次数
-    cout << "The number of cycles is " << PersonalizedNumberOfCycles << "." << endl;
+    cout << "Number of Cycles : " << PersonalizedNumberOfCycles << "." << endl;
 
     // 输出平凡算法平均运行时间
     cout << fixed << setprecision(4) << "The average running time of ordinary algorithms: " << duration_ordinary / PersonalizedNumberOfCycles << " microseconds." << endl;
@@ -129,7 +129,7 @@ void FixedDataScaleTesting(int n)
     cout << fixed << setprecision(4) << "The average running time of optimized algorithms: " << duration_optimized / PersonalizedNumberOfCycles << " microseconds." << endl;
 
     // 输出加速比
-    cout << fixed << setprecision(4) << "The acceleration ratio is " << duration_ordinary / duration_optimized << "." << endl;
+    cout << fixed << setprecision(4) << "The acceleration ratio is " << duration_ordinary / duration_optimized << "." << endl << endl;
 }
 
 int main() {
