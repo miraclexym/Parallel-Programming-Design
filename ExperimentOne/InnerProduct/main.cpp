@@ -8,9 +8,9 @@
 using namespace std;
 
 // 设置测试数据规模
-const int MinTestDataSize = 1e1;
-const int MaxTestDataSize = 1e4;
-const int ScaleIncreasingFactor = 1e1;
+const int MinTestDataSize = 3e2;
+const int MaxTestDataSize = 6e3;
+const int ScaleIncreasingFactor = MinTestDataSize;
 
 // 设置测试循环系数
 const int CycleControlCoefficient = 1e5;
@@ -104,32 +104,32 @@ void FixedDataScaleTesting(int n)
     // 输出正确与否
     bool areEqual = JudgingWhetherVectorsAreEqual(theOrdinaryResult, theOptimizedResult);
     if (areEqual) {
-        cout << "These two vectors are equal, and the calculation result is correct." << endl;
+        cout << "Correct. ";
     }
     else {
-        cout << "These two vectors are not equal, the calculation result is incorrect." << endl;
+        cout << "Incorrect. ";
     }
 
     // 输出数据规模
-    cout << "Data size : " << n << ".";
+    cout << "\nSize : " << n << ". ";
 
     // 输出循环次数
-    cout << "Number of Cycles : " << PersonalizedNumberOfCycles << "." << endl;
+    // cout << "Cycles : " << PersonalizedNumberOfCycles << ".";
 
     // 输出平凡算法平均运行时间
-    cout << fixed << setprecision(4) << "The average running time of ordinary algorithms: " << duration_ordinary / PersonalizedNumberOfCycles << " microseconds." << endl;
+    cout << fixed << setprecision(4) << "\nOrdinary : " << duration_ordinary / PersonalizedNumberOfCycles << " us." << endl;
 
     // 输出优化算法平均运行时间
-    cout << fixed << setprecision(4) << "The average running time of optimized algorithms: " << duration_optimized / PersonalizedNumberOfCycles << " microseconds." << endl;
+    cout << fixed << setprecision(4) << "Optimized : " << duration_optimized / PersonalizedNumberOfCycles << " us." << endl;
 
     // 输出加速比
-    cout << fixed << setprecision(4) << "The acceleration ratio is " << duration_ordinary / duration_optimized << "." << endl << endl;
+    cout << fixed << setprecision(4) << "Ratio : " << duration_ordinary / duration_optimized << "." << endl << endl;
 }
 
 int main() {
 
     // 对于不同数据规模进行测试
-    for (int i = MinTestDataSize; i <= MaxTestDataSize; i *= ScaleIncreasingFactor)
+    for (int i = MinTestDataSize; i <= MaxTestDataSize; i += ScaleIncreasingFactor)
         FixedDataScaleTesting(i);
 
     return 0;
