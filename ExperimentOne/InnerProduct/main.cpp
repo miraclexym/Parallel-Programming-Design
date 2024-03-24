@@ -18,7 +18,7 @@ const int CycleControlCoefficient = 1e5;
 // 逐列访问元素的平凡算法
 void ordinaryMatrixVectorInnerProduct(const vector<vector<double>>& theMatrix, const vector<double>& theVector, vector<double>& theResult) {
     int n = theMatrix.size();
-
+    theResult.resize(n, 0.0);
     for (int j = 0; j < n; j++)
         for (int i = 0; i < n; i++)
             theResult[j] += theMatrix[i][j] * theVector[i];
@@ -27,7 +27,7 @@ void ordinaryMatrixVectorInnerProduct(const vector<vector<double>>& theMatrix, c
 // cache优化算法
 void optimizedMatrixVectorInnerProduct(const vector<vector<double>>& theMatrix, const vector<double>& theVector, vector<double>& theResult) {
     int n = theMatrix.size();
-
+    theResult.resize(n, 0.0);
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             theResult[j] += theMatrix[i][j] * theVector[i];
@@ -87,10 +87,7 @@ void FixedDataScaleTesting(int n)
     QueryPerformanceFrequency((LARGE_INTEGER*)&freqOrdinary);
     QueryPerformanceCounter((LARGE_INTEGER*)&headOrdinary);
     for (int i = 0; i < PersonalizedNumberOfCycles; i++)
-    {
-        theOrdinaryResult.resize(n, 0.0);
         ordinaryMatrixVectorInnerProduct(theMatrix, theVector, theOrdinaryResult);
-    }
     QueryPerformanceCounter((LARGE_INTEGER*)&tailOrdinary);
     double duration_ordinary = (tailOrdinary - headOrdinary) * 1e6 / freqOrdinary;
 
@@ -100,10 +97,7 @@ void FixedDataScaleTesting(int n)
     QueryPerformanceFrequency((LARGE_INTEGER*)&freqOptimized);
     QueryPerformanceCounter((LARGE_INTEGER*)&headOptimized);
     for (int i = 0; i < PersonalizedNumberOfCycles; i++)
-    {
-        theOptimizedResult.resize(n, 0.0);
         optimizedMatrixVectorInnerProduct(theMatrix, theVector, theOptimizedResult);
-    }
     QueryPerformanceCounter((LARGE_INTEGER*)&tailOptimized);
     double duration_optimized = (tailOptimized - headOptimized) * 1e6 / freqOptimized;
 
