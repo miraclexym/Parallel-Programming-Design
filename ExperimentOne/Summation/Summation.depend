@@ -1,4 +1,9 @@
 # depslib dependency file v1.0
-1584205420 source:d:\variousprograms\parallelprogram\summation\main.cpp
+1711245865 source:d:\variousprograms\parallelprogram\summation\main.cpp
 	<iostream>
+	<vector>
+	<windows.h>
+	<numeric>
+	<iomanip>
+	<cmath>
 
