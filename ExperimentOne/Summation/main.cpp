@@ -9,7 +9,7 @@ using namespace std;
 
 // 设置测试数据规模
 const int MinTestDataSize = pow(2, 1);
-const int MaxTestDataSize = pow(2, 20);
+const int MaxTestDataSize = pow(2, 17);
 const int ScaleIncreasingFactor = 2;
 
 // 设置测试循环系数
@@ -134,29 +134,31 @@ void FixedDataScaleTesting(int n)
     double durationCirculate = (tailCirculate - headCirculate) * 1e6 / freqCirculate;
 
     // 输出数据规模与循环次数
-    cout << "Data size : " << n << ". " << "Number of Cycles : " << PersonalizedNumberOfCycles << ".";
+    cout << "Size : " << n << ". " ;
+    cout << "Cycles : " << PersonalizedNumberOfCycles << ".";
 
     // 输出结果正确与否
-    if (resultOrdinary == resultMultiLink && resultOrdinary == resultRecursive && resultOrdinary == resultCirculate)
-        cout << " The calculation result is correct." << endl;
+    if ((resultOrdinary == resultMultiLink) && (resultOrdinary == resultRecursive) && (resultOrdinary == resultCirculate))
+        cout << "";
 
     // 输出平凡算法平均运行时间
-    cout << fixed << setprecision(4) << "Ordinary algorithms : " << durationOrdinary / PersonalizedNumberOfCycles << " microseconds." << endl;
+    cout << fixed << setprecision(4) << " Ordinary : " << durationOrdinary / PersonalizedNumberOfCycles << " us. ";
 
     // 输出多链算法平均运行时间
-    cout << fixed << setprecision(4) << "MultiLink algorithms : " << durationMultiLink / PersonalizedNumberOfCycles << " microseconds.";
+    cout << fixed << setprecision(4) << "MultiLink : " << durationMultiLink / PersonalizedNumberOfCycles << " us. ";
     // 输出多链算法加速比
-    cout << fixed << setprecision(4) << " Acceleration ratio : " << durationOrdinary / durationMultiLink << "." << endl;
+    cout << fixed << setprecision(4) << " Ratio : " << durationOrdinary / durationMultiLink << ".";
 
     // 输出递归算法平均运行时间
-    cout << fixed << setprecision(4) << "Recursive algorithms : " << durationRecursive / PersonalizedNumberOfCycles << " microseconds.";
+    cout << fixed << setprecision(4) << "Recursive : " << durationRecursive / PersonalizedNumberOfCycles << " us. ";
     // 输出递归算法加速比
-    cout << fixed << setprecision(4) << " Acceleration ratio : " << durationOrdinary / durationRecursive << "." << endl;
+    cout << fixed << setprecision(4) << " Ratio : " << durationOrdinary / durationRecursive << ".";
 
     // 输出循环算法平均运行时间
-    cout << fixed << setprecision(4) << "Circulate algorithms : " << durationCirculate / PersonalizedNumberOfCycles << " microseconds.";
+    cout << fixed << setprecision(4) << "Circulate : " << durationCirculate / PersonalizedNumberOfCycles << " us. ";
     // 输出循环算法加速比
-    cout << fixed << setprecision(4) << " Acceleration ratio : " << durationOrdinary / durationCirculate << "." << endl << endl;
+    cout << fixed << setprecision(4) << " Ratio : " << durationOrdinary / durationCirculate << ".";
+    cout << endl;
 
 }
 
