@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1711274103 source:d:\variousprograms\parallelprogram\innerproduct\main.cpp
-	<iostream>
-	<vector>
-	<cstdlib>
-	<ctime>
-	<iomanip>
-	<windows.h>
-
